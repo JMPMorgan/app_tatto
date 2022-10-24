@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AllPosts">
+
+
+    <Button
+        android:id="@+id/btn_newpost"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"
+        android:layout_width="151dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="@string/btn_newpost"
+        android:textAllCaps="false"
+        android:textColor="@color/purple_800"
+        app:icon="@drawable/ic_add"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:strokeColor="@color/purple_800"
+        app:strokeWidth="2dp" />
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout"
+        android:layout_width="83dp"
+        android:layout_height="73dp"
+        android:layout_marginStart="16dp"
+
+        android:layout_marginTop="88dp"
+        android:background="#6B6512EF"
+        android:padding="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <ImageView
+
+            android:id="@+id/imageView6"
+            android:layout_width="65dp"
+            android:layout_height="49dp"
+            android:layout_alignParentLeft="false"
+            android:layout_alignParentTop="false"
+
+            android:layout_marginLeft="0dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginRight="0dp"
+            android:background="#6B9A64F3"
+            tools:srcCompat="@tools:sample/avatars" />
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout2"
+        android:layout_width="83dp"
+        android:layout_height="73dp"
+
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="88dp"
+        android:background="#6B6512EF"
+        android:padding="16dp"
+        app:layout_constraintStart_toEndOf="@+id/relativeLayout"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <ImageView
+
+            android:id="@+id/imageView7"
+            android:layout_width="67dp"
+            android:layout_height="52dp"
+            android:layout_alignParentLeft="false"
+            android:layout_alignParentTop="false"
+
+            android:layout_marginLeft="0dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginRight="0dp"
+            android:background="#6B9A64F3"
+            tools:srcCompat="@tools:sample/avatars" />
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout3"
+        android:layout_width="83dp"
+
+        android:layout_height="73dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="88dp"
+        android:background="#6B6512EF"
+        android:padding="16dp"
+        app:layout_constraintStart_toEndOf="@+id/relativeLayout2"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <ImageView
+
+            android:id="@+id/imageView8"
+            android:layout_width="67dp"
+            android:layout_height="52dp"
+            android:layout_alignParentLeft="false"
+            android:layout_alignParentTop="false"
+
+            android:layout_marginLeft="0dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginRight="0dp"
+            android:background="#6B9A64F3"
+            tools:srcCompat="@tools:sample/avatars" />
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="83dp"
+        android:layout_height="73dp"
+
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="88dp"
+        android:background="#6B6512EF"
+        android:padding="16dp"
+        app:layout_constraintStart_toEndOf="@+id/relativeLayout3"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <ImageView
+
+            android:id="@+id/imageView9"
+            android:layout_width="67dp"
+            android:layout_height="52dp"
+            android:layout_alignParentLeft="false"
+            android:layout_alignParentTop="false"
+
+            android:layout_marginLeft="0dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginRight="0dp"
+            android:background="#6B9A64F3"
+            tools:srcCompat="@tools:sample/avatars" />
+
+
+    </RelativeLayout>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="417dp"
+        android:layout_height="94dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/floatingActionButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/purple_800"
+            android:backgroundTintMode="add"
+            android:src="@drawable/ic_search"
+            app:itemIconTint="@color/white"
+            app:itemTextColor="@color/white"
+
+            app:layout_anchor="@id/bottomAppMenu"
+            app:maxImageSize="30dp"
+            tools:layout_editor_absoluteX="177dp"
+            tools:layout_editor_absoluteY="634dp" />
+
+        <com.google.android.material.bottomappbar.BottomAppBar
+            android:id="@+id/bottomAppMenu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:background="@color/purple_800"
+            android:backgroundTint="@color/purple_600"
+            android:backgroundTintMode="add"
+            app:fabCradleMargin="10dp"
+            app:fabCradleRoundedCornerRadius="10dp">
+
+            <com.google.android.material.bottomnavigation.BottomNavigationView
+                android:id="@+id/bottomMenuIcons"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/transparent"
+                app:elevation="0dp"
+                app:itemIconTint="@color/white"
+                app:itemTextColor="@color/white"
+                app:menu="@menu/bottom_menu" />
+
+        </com.google.android.material.bottomappbar.BottomAppBar>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
