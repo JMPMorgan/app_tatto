@@ -10,8 +10,13 @@ class SignUpActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.signup)
         val btnLogin= findViewById<Button>(R.id.btn_login)
+        val btnSignUp = findViewById<Button>(R.id.btn_signin)
         btnLogin.setOnClickListener{
             val launch = Intent(this,TattoCenterList::class.java)
+            startActivity(launch)
+        }
+        btnSignUp.setOnClickListener{
+            val launch = Intent(this,RegisterUser::class.java)
             startActivity(launch)
         }
     }
