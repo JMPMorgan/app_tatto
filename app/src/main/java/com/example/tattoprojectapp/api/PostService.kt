@@ -5,13 +5,15 @@ import retrofit2.Call
 import retrofit2.http.*
 
 interface PostService {
-    @POST("/api/user")
-    fun createNewUser():Call<User>
+    @Headers("Content-Type: application/json")
+    @POST("/api/user/")
+    fun createNewUser(@Body user:User):Call<User>
     @GET("/api/user/{id}")
     fun getUserInfo(@Path("id")id:Int): Call<User>
     @PUT("/api/user/{id}")
     fun updateUser(@Path("id")id:Int):Call<User>
     @DELETE("/api/user/{id}")
     fun deleteUser(@Path("id")id:Int):Call<User>
-
+    @GET("/api/user/")
+    fun getUsers():Call<List<User>>
 }
