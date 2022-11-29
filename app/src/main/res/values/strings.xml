@@ -21,8 +21,10 @@
     <string name="email_str">E-mail</string>
     <string name="btn_back">Back</string>
     <string name="btn_login">Log In</string>
+    <string name="btn_logout">Log Out</string>
     <string name="btn_signup">Sign In</string>
     <string name="btn_sendcode">Send Code</string>
+    <string name="btn_editprofile">Edit Profile</string>
     <string name="btn_newpost">New Post</string>
 
     <string name="btn_forgetpassword">Forget Password?</string>

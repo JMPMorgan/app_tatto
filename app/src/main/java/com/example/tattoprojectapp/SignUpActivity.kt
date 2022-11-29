@@ -23,7 +23,7 @@ class SignUpActivity : AppCompatActivity() {
         val btnLogin= findViewById<Button>(R.id.btn_login)
         val btnSignUp = findViewById<Button>(R.id.btn_signin)
         btnLogin.setOnClickListener{
-            signIn()
+            val isLoggin=signIn()
         }
         btnSignUp.setOnClickListener{
             val launch = Intent(this,RegisterUser::class.java)
@@ -49,15 +49,23 @@ class SignUpActivity : AppCompatActivity() {
                 var sharedPreferences:SharedPreferences?=null;
                 sharedPreferences= getSharedPreferences("userData",Context.MODE_PRIVATE)
                 val user = response.body()
-                val jwt=user!!.jwt
-                val editor=sharedPreferences.edit()
-                editor.putString("jwt",jwt)
-                editor.commit()
+                if(user!!.jwt!==null || user!!.userid !==null){
+                    val jwt=user!!.jwt
+                    val id = user!!.userid
+                    val editor=sharedPreferences.edit()
+                    editor.putString("jwt",jwt)
+                    editor.putString("iduser",id)
+                    editor.commit()
+                    //Toast.makeText(this@SignUpActivity,id,Toast.LENGTH_SHORT).show()
+                    var sp:SharedPreferences=applicationContext.getSharedPreferences("userData",Context.MODE_PRIVATE)
+                    val jwtsp=sp.getString("jwt","")
+                    //Toast.makeText(this@SignUpActivity,jwt, Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@SignUpActivity,jwtsp, Toast.LENGTH_SHORT).show()
+                    val launch = Intent(this@SignUpActivity,AllPosts::class.java)
+                    startActivity(launch)
+                }
+                Toast.makeText(this@SignUpActivity,"Error no se pudo encontrar el usuario",Toast.LENGTH_SHORT).show()
 
-                var sp:SharedPreferences=applicationContext.getSharedPreferences("userData",Context.MODE_PRIVATE)
-                val jwtsp=sp.getString("jwt","")
-                //Toast.makeText(this@SignUpActivity,jwt, Toast.LENGTH_SHORT).show()
-                Toast.makeText(this@SignUpActivity,jwtsp, Toast.LENGTH_SHORT).show()
             }
         })
     }
