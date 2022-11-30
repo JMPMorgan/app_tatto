@@ -61,7 +61,7 @@ class SignUpActivity : AppCompatActivity() {
                     val jwtsp=sp.getString("jwt","")
                     //Toast.makeText(this@SignUpActivity,jwt, Toast.LENGTH_SHORT).show()
                     Toast.makeText(this@SignUpActivity,jwtsp, Toast.LENGTH_SHORT).show()
-                    val launch = Intent(this@SignUpActivity,AllPosts::class.java)
+                    val launch = Intent(this@SignUpActivity,Profile::class.java)
                     startActivity(launch)
                 }
                 Toast.makeText(this@SignUpActivity,"Error no se pudo encontrar el usuario",Toast.LENGTH_SHORT).show()

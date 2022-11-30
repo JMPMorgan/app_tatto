@@ -20,6 +20,7 @@
     <string name="description_post_str">Description</string>
     <string name="email_str">E-mail</string>
     <string name="btn_back">Back</string>
+    <string name="btn_loadimage">Load Image</string>
     <string name="btn_login">Log In</string>
     <string name="btn_logout">Log Out</string>
     <string name="btn_signup">Sign In</string>

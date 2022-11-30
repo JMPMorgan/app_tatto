@@ -22,5 +22,7 @@ data class User(
     @SerializedName("username")
     var username:String?=null,
     @SerializedName("token")
-    var jwt:String?=null
+    var jwt:String?=null,
+    @SerializedName("img")
+    var file:String?=null
 )

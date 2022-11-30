@@ -9,11 +9,11 @@ interface PostService {
     @POST("/api/user/")
     fun createNewUser(@Body user:User):Call<User>
     @GET("/api/user/{id}")
-    fun getUserInfo(@Path("id")id:Int): Call<User>
+    fun getUserInfo(@Path("id")id:String): Call<User>
     @PUT("/api/user/{id}")
-    fun updateUser(@Path("id")id:Int):Call<User>
+    fun updateUser(@Path("id")id:String,@Body user:User):Call<User>
     @DELETE("/api/user/{id}")
-    fun deleteUser(@Path("id")id:Int):Call<User>
+    fun deleteUser(@Path("id")id:String):Call<User>
     @GET("/api/user/")
     fun getUsers():Call<List<User>>
 }

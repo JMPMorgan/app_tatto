@@ -1,5 +1,6 @@
 package com.example.tattoprojectapp
 
+import android.annotation.SuppressLint
 import android.content.ClipData
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -8,12 +9,15 @@ import android.view.Menu
 import android.view.MenuItem
 import android.widget.Button
 import android.widget.Toast
+import com.google.android.material.bottomappbar.BottomAppBar
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class BottomMenu : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.bottom_menu)
+        //var btnAppBar=findViewById<MenuItem>(R.menu.bottom_menu)
+       // private lateinit var binding: ActivityApplicationBinding
         /*val btnProfile = findViewById<Button>(R.id.account)
         val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
             when (item.itemId) {
