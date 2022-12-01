@@ -4,11 +4,21 @@ import com.google.gson.annotations.SerializedName
 
 data class Local(
     @SerializedName("_id")
-    var id:Int,
+    var id:String?=null,
     @SerializedName("user")
-    var userCreator:Int,
+    var userCreator:String?=null,
     @SerializedName("status")
-    var status:Boolean,
+    var status:Boolean?=null,
     @SerializedName("location")
-    var location:String
+    var location:String?=null,
+    @SerializedName("img")
+    var img:String?=null,
+    @SerializedName("weekdays")
+    var weekdays:String?=null,
+    @SerializedName("schedule")
+    var schedule:String?=null,
+    @SerializedName("name")
+    var name:String?=null,
+    @SerializedName("msg")
+    var msg:String?=null
 )

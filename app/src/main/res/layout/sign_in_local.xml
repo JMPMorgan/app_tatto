@@ -8,6 +8,53 @@
 
 
     <EditText
+        android:id="@+id/input_open_days_shop"
+        android:layout_width="328dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/input_main"
+        android:ems="10"
+        android:inputType="text"
+        android:paddingStart="4dp"
+        android:paddingEnd="4dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/input_adress_shop" />
+
+    <EditText
+        android:id="@+id/input_schedule"
+        android:layout_width="328dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="96dp"
+        android:background="@drawable/input_main"
+        android:ems="10"
+        android:inputType="text"
+        android:paddingStart="4dp"
+        android:paddingEnd="4dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/input_adress_shop" />
+
+    <TextView
+        android:id="@+id/txt_schedule"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="72dp"
+        android:text="Schedule"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/input_open_days_shop" />
+
+    <TextView
+        android:id="@+id/txt_open_days_shop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:text="@string/open_days_shop_str"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/input_open_days_shop" />
+
+    <EditText
         android:id="@+id/input_name_shop"
         android:layout_width="328dp"
         android:layout_height="45dp"
@@ -55,75 +102,34 @@
         app:layout_constraintTop_toBottomOf="@+id/input_adress_shop" />
 
 
-    <EditText
-        android:id="@+id/input_open_days_shop"
-        android:layout_width="328dp"
-        android:layout_height="45dp"
-        android:layout_marginStart="40dp"
+    <Button
+        android:id="@+id/btn_loadimage"
+        android:layout_width="329dp"
+        android:layout_height="48dp"
         android:layout_marginTop="24dp"
-        android:background="@drawable/input_main"
-        android:ems="10"
-        android:inputType="text"
-        android:paddingStart="4dp"
-        android:paddingEnd="4dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/input_adress_shop" />
+        android:layout_marginEnd="40dp"
+        android:backgroundTint="@color/purple_800"
+        android:backgroundTintMode="add"
+        android:text="@string/btn_loadimage"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/input_schedule" />
 
-    <TextView
-        android:id="@+id/txt_open_days_shop"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:text="@string/open_days_shop_str"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/input_open_days_shop" />
-
-
-    <EditText
-        android:id="@+id/input_open_time"
-        android:layout_width="150dp"
-        android:layout_height="45dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="24dp"
-        android:background="@drawable/input_main"
-        android:ems="10"
-        android:inputType="textPassword"
-        android:paddingStart="4dp"
-        android:paddingEnd="4dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/input_open_days_shop" />
-
-    <TextView
-        android:id="@+id/txt_open_time"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:text="@string/open_time_shop_str"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/input_open_time" />
-
-    <EditText
-        android:id="@+id/input_close_time"
-        android:layout_width="150dp"
-        android:layout_height="45dp"
-        android:layout_marginStart="216dp"
-        android:layout_marginTop="24dp"
-        android:background="@drawable/input_main"
-        android:ems="10"
-        android:inputType="textPassword"
-        android:paddingStart="4dp"
-        android:paddingEnd="4dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/input_open_days_shop" />
-
-    <TextView
-        android:id="@+id/txt_close_time"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="216dp"
-        android:text="@string/close_time_shop_str"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/input_close_time" />
+    <Button
+        android:id="@+id/btn_back"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        android:layout_width="151dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="32dp"
+        android:text="@string/btn_back"
+        android:textAllCaps="false"
+        android:textColor="@color/purple_800"
+        app:layout_constraintEnd_toStartOf="@+id/btn_signin"
+        app:layout_constraintTop_toBottomOf="@+id/btn_loadimage"
+        app:strokeColor="@color/purple_800"
+        app:strokeWidth="2dp" />
 
     <Button
         android:id="@+id/btn_signin"
@@ -137,29 +143,14 @@
         android:textAllCaps="false"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/input_open_time" />
-
-    <Button
-        android:id="@+id/btn_back"
-        android:layout_width="151dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="28dp"
-        android:layout_marginEnd="28dp"
-        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-        app:strokeWidth="2dp"
-        app:strokeColor="@color/purple_800"
-        android:text="@string/btn_back"
-        android:textAllCaps="false"
-        android:textColor="@color/purple_800"
-        app:layout_constraintEnd_toStartOf="@+id/btn_signin"
-        app:layout_constraintTop_toBottomOf="@+id/input_open_time" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_loadimage" />
 
     <ImageView
         android:id="@+id/imageView3"
         android:layout_width="162dp"
         android:layout_height="152dp"
         android:layout_marginStart="124dp"
-        android:layout_marginTop="88dp"
+        android:layout_marginTop="44dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@tools:sample/avatars" />

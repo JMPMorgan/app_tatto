@@ -17,12 +17,25 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/logo" />
 
+    <Button
+        android:id="@+id/btn_createlocal"
+        android:layout_width="151dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="96dp"
+        android:layout_marginEnd="244dp"
+        android:backgroundTint="@color/purple_800"
+        android:backgroundTintMode="add"
+        android:text="@string/btn_createlocal"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/img_logo" />
 
     <Button
         android:id="@+id/btn_logout"
         android:layout_width="151dp"
         android:layout_height="50dp"
-        android:layout_marginTop="92dp"
+        android:layout_marginTop="156dp"
         android:layout_marginEnd="244dp"
         android:backgroundTint="@color/purple_800"
         android:backgroundTintMode="add"
@@ -31,6 +44,9 @@
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/img_logo" />
+
+
+
 
     <Button
         android:id="@+id/btn_editprofile2"

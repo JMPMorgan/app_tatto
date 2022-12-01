@@ -23,6 +23,7 @@
     <string name="btn_loadimage">Load Image</string>
     <string name="btn_login">Log In</string>
     <string name="btn_logout">Log Out</string>
+    <string name="btn_createlocal">Create Local</string>
     <string name="btn_signup">Sign In</string>
     <string name="btn_sendcode">Send Code</string>
     <string name="btn_editprofile">Edit Profile</string>

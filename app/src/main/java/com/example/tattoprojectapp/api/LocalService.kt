@@ -9,7 +9,7 @@ interface LocalService {
     fun getLocals(): Call<List<Local>>
     @GET("/api/local/{id}")
     fun getLocal(@Path("id")id : Int):Call<Local>
-    @POST("/api/local")
-    fun createLocal():Call<Int>
+    @POST("/api/local/")
+    fun createLocal(@Body local:Local):Call<Local>
 
 }
