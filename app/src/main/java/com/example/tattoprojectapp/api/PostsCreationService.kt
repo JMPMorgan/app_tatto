@@ -8,7 +8,9 @@ interface PostsCreationService {
     @GET("/api/posts")
     fun getAllPosts():Call<List<Post>>
     @GET("/api/posts/{id}")
-    fun getPost(@Path("id")id:Int):Call<Post>
+    fun getPost(@Path("id")id:String):Call<Post>
     @POST("/api/posts")
-    fun createPost():Call<Post>
+    fun createPost(@Body post:Post):Call<Post>
+    @GET("/api/local/post/{id}")
+    fun getPostsPerLocal(@Path("id") id: String):Call<Post>
 }

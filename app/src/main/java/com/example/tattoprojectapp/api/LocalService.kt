@@ -8,8 +8,10 @@ interface LocalService {
     @GET("/api/local")
     fun getLocals(): Call<List<Local>>
     @GET("/api/local/{id}")
-    fun getLocal(@Path("id")id : Int):Call<Local>
+    fun getLocal(@Path("id")id : String):Call<Local>
     @POST("/api/local/")
     fun createLocal(@Body local:Local):Call<Local>
+    @GET("/api/local/user/{id}")
+    fun getLocalPerUser(@Path("id")id:String):Call<Local>
 
 }

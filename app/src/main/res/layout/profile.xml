@@ -46,7 +46,33 @@
         app:layout_constraintTop_toBottomOf="@+id/img_logo" />
 
 
+    <Button
+        android:id="@+id/btn_temp"
+        android:layout_width="151dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="228dp"
+        android:layout_marginEnd="244dp"
+        android:backgroundTint="@color/purple_800"
+        android:backgroundTintMode="add"
+        android:text="new_POST_TMP"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/img_logo" />
 
+    <Button
+        android:id="@+id/btn_temp2"
+        android:layout_width="151dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="296dp"
+        android:layout_marginEnd="244dp"
+        android:backgroundTint="@color/purple_800"
+        android:backgroundTintMode="add"
+        android:text="new_ALLPOST_TMP"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/img_logo" />
 
     <Button
         android:id="@+id/btn_editprofile2"

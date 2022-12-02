@@ -1,5 +1,6 @@
 package com.example.tattoprojectapp.models
 
+import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
 data class Local(
@@ -20,5 +21,8 @@ data class Local(
     @SerializedName("name")
     var name:String?=null,
     @SerializedName("msg")
-    var msg:String?=null
+    var msg:String?=null,
+    @SerializedName("local")
+    @Expose
+    var local:Local?=null
 )

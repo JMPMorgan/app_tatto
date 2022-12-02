@@ -25,6 +25,8 @@ class Profile : AppCompatActivity() {
         setContentView(R.layout.profile)
         val btnEditProfile=findViewById<Button>(R.id.btn_editprofile2)
         val btnCreateLocal= findViewById<Button>(R.id.btn_createlocal)
+        val btnTmpPost= findViewById<Button>(R.id.btn_temp)
+        val btnTmpAllPost= findViewById<Button>(R.id.btn_temp2)
         var sp: SharedPreferences =applicationContext.getSharedPreferences("userData", Context.MODE_PRIVATE)
         val id=sp.getString("iduser","")
         val service: PostService = ApiEngine.getApi().create(PostService::class.java)
@@ -58,6 +60,15 @@ class Profile : AppCompatActivity() {
 
         btnCreateLocal.setOnClickListener {
             val launch = Intent(this, SignInLocal::class.java)
+            startActivity(launch)
+        }
+
+        btnTmpPost.setOnClickListener{
+            val launch=Intent(this,NewPost::class.java)
+            startActivity(launch)
+        }
+        btnTmpAllPost.setOnClickListener{
+            val launch=Intent(this,AllPosts::class.java)
             startActivity(launch)
         }
 
