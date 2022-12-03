@@ -24,5 +24,7 @@ data class Local(
     var msg:String?=null,
     @SerializedName("local")
     @Expose
-    var local:Local?=null
+    var local:Local?=null,
+    @SerializedName("locals")
+    var locals:List<Local>?=null
 )

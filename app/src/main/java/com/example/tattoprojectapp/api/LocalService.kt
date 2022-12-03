@@ -6,7 +6,7 @@ import retrofit2.http.*
 
 interface LocalService {
     @GET("/api/local")
-    fun getLocals(): Call<List<Local>>
+    fun getLocals(): Call<Local>
     @GET("/api/local/{id}")
     fun getLocal(@Path("id")id : String):Call<Local>
     @POST("/api/local/")

@@ -25,6 +25,7 @@ class Profile : AppCompatActivity() {
         setContentView(R.layout.profile)
         val btnEditProfile=findViewById<Button>(R.id.btn_editprofile2)
         val btnCreateLocal= findViewById<Button>(R.id.btn_createlocal)
+        val btnLocales=findViewById<Button>(R.id.btnlocal)
         val btnTmpPost= findViewById<Button>(R.id.btn_temp)
         val btnTmpAllPost= findViewById<Button>(R.id.btn_temp2)
         var sp: SharedPreferences =applicationContext.getSharedPreferences("userData", Context.MODE_PRIVATE)
@@ -54,6 +55,11 @@ class Profile : AppCompatActivity() {
 
         btnEditProfile.setOnClickListener{
             val laucnh= Intent(this,EditProfile::class.java)
+            startActivity(laucnh)
+        }
+
+        btnLocales.setOnClickListener {
+            val laucnh= Intent(this,Locals::class.java)
             startActivity(laucnh)
         }
 

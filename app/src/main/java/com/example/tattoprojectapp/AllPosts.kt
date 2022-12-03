@@ -26,10 +26,20 @@ class AllPosts : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.all_posts)
         recyclerView=findViewById(R.id.recyclerviewpost)
-        getLocal()
+        idLocal= getIntent().getStringExtra("Local_ID").toString();
+        Log.e("ID LOCAL EN ALL POSTS",idLocal)
+
+        if(idLocal.isNotEmpty()){
+            Log.e("ENTRO ID LOCAL",idLocal)
+            getPosts()
+        }
+        else{
+            Log.e("Entro","Aqui2")
+
+            getLocal()
+        }
         //getPosts()
         Log.e("POST",posts.toString())
-
 
 
 
@@ -57,7 +67,7 @@ class AllPosts : AppCompatActivity() {
 
     private fun getPosts(){
         val service: PostsCreationService = ApiEngine.getApi().create(PostsCreationService::class.java)
-
+        Log.e("ID LOCAL",idLocal)
         val response: Call<Post> = service.getPostsPerLocal(idLocal)
         response.enqueue(object : Callback<Post> {
             override fun onFailure(call: Call<Post>, t: Throwable) {
