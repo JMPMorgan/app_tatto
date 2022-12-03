@@ -11,7 +11,7 @@
         android:id="@+id/input_name"
         android:layout_width="328dp"
         android:layout_height="45dp"
-        android:layout_marginStart="36dp"
+        android:layout_marginStart="40dp"
         android:layout_marginTop="144dp"
         android:background="@drawable/input_main"
         android:ems="10"

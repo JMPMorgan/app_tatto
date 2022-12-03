@@ -54,7 +54,7 @@
         android:layout_marginEnd="244dp"
         android:backgroundTint="@color/purple_800"
         android:backgroundTintMode="add"
-        android:text="new_POST_TMP"
+        android:text="Create Post"
         android:textAllCaps="false"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
@@ -68,7 +68,7 @@
         android:layout_marginEnd="244dp"
         android:backgroundTint="@color/purple_800"
         android:backgroundTintMode="add"
-        android:text="new_ALLPOST_TMP"
+        android:text="All Posts"
         android:textAllCaps="false"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
@@ -107,11 +107,26 @@
         android:id="@+id/btnlocal"
         android:layout_width="144dp"
         android:layout_height="53dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="248dp"
+        android:layout_marginTop="220dp"
+        android:layout_marginEnd="44dp"
         android:backgroundTint="@color/purple_800"
         android:text="Locals"
+        android:textAllCaps="false"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_temp2" />
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btn_message"
+        android:layout_width="151dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="36dp"
+        android:backgroundTint="@color/purple_800"
+        android:backgroundTintMode="add"
+        android:text="Mensajes"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnlocal" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

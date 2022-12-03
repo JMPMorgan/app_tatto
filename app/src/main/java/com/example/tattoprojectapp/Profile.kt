@@ -28,6 +28,7 @@ class Profile : AppCompatActivity() {
         val btnLocales=findViewById<Button>(R.id.btnlocal)
         val btnTmpPost= findViewById<Button>(R.id.btn_temp)
         val btnTmpAllPost= findViewById<Button>(R.id.btn_temp2)
+        val btnMessages=findViewById<Button>(R.id.btn_message)
         var sp: SharedPreferences =applicationContext.getSharedPreferences("userData", Context.MODE_PRIVATE)
         val id=sp.getString("iduser","")
         val service: PostService = ApiEngine.getApi().create(PostService::class.java)
@@ -75,6 +76,11 @@ class Profile : AppCompatActivity() {
         }
         btnTmpAllPost.setOnClickListener{
             val launch=Intent(this,AllPosts::class.java)
+            startActivity(launch)
+        }
+
+        btnMessages.setOnClickListener{
+            val launch=Intent(this,Chats::class.java)
             startActivity(launch)
         }
 
