@@ -15,10 +15,6 @@ import com.example.tattoprojectapp.models.Post
 import com.squareup.picasso.Picasso
 
 class PostsRecyclerView(val posts:List<Post>):RecyclerView.Adapter<PostsRecyclerView.ViewHolder>(),Filterable {
-
-
-
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view=LayoutInflater.from(parent.context).inflate(R.layout.row_posts,parent,false)
         return  ViewHolder(view)
