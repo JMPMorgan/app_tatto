@@ -27,7 +27,9 @@
     <string name="btn_signup">Sign In</string>
     <string name="btn_sendcode">Send Code</string>
     <string name="btn_editprofile">Edit Profile</string>
+    <string name="btn_sendmsg">Send</string>
     <string name="btn_newpost">New Post</string>
+    <string name="btn_message">Message</string>
 
     <string name="btn_forgetpassword">Forget Password?</string>
     <string name="lorem">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ac tellus ac quam varius vestibulum eu sed leo.</string>

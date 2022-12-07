@@ -10,5 +10,8 @@ data class  Message(
     @SerializedName("receiver")
     var receiver:User?=null,
     @SerializedName("message")
-    var message:String?=null
+    var message:String?=null,
+    var idsender:String?=null,
+    var idreceiver:String?=null,
+    var conversation:String?=null
 )

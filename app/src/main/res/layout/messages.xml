@@ -5,10 +5,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Messages">
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/messageRV"
-        android:layout_width="409dp"
-        android:layout_height="766dp"
+        android:layout_width="387dp"
+        android:layout_height="726dp"
         android:layout_marginTop="76dp"
         android:orientation="vertical"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
@@ -16,16 +17,18 @@
         app:layout_constraintBottom_toTopOf="@+id/btn_sendmsg"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/btn_sendmsg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="28dp"
         android:backgroundTint="@color/purple_800"
-        android:text="@string/publish_post_str"
+        android:text="@string/btn_sendmsg"
+        android:textAllCaps="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -33,12 +36,12 @@
         android:id="@+id/input_description_post"
         android:layout_width="263dp"
         android:layout_height="45dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginBottom="28dp"
         android:background="@drawable/input_main"
         android:inputType="text"
         android:paddingStart="4dp"
         android:paddingEnd="4dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/messageRV" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

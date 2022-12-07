@@ -31,9 +31,11 @@ class ChatsRecyclerView(val context: Context ,val chats:List<Conversations>): Re
        val chat=chats.get(position)
         if(chat.idreceiver.equals(chat.user!!.userid)){
             holder.user.text=chat.user!!.name
+            holder.receiverID=chat.user!!.userid.toString()
             Picasso.get().load(chat.user!!.file.toString()).into(holder.imgUser)
         }else{
             holder.user.text=chat.artists!!.name
+            holder.receiverID=chat.artists!!.userid.toString()
             Picasso.get().load(chat.artists!!.file.toString()).into(holder.imgUser)
         }
         holder.conversationID=chat.id.toString()
@@ -52,6 +54,7 @@ class ChatsRecyclerView(val context: Context ,val chats:List<Conversations>): Re
         val imgUser=itemView?.findViewById<ImageView>(R.id.imagePost)
         val user=itemView?.findViewById<TextView>(R.id.vtUser)
         var conversationID:String=""
+        var receiverID:String=""
         init{
             itemView.setOnClickListener(this)
         }
@@ -61,6 +64,7 @@ class ChatsRecyclerView(val context: Context ,val chats:List<Conversations>): Re
                     Log.e("Eroror",this.user.toString())
                     val activity=Intent(context,Messages::class.java)
                     activity.putExtra("Conversation_ID",this.conversationID)
+                    activity.putExtra("Receiver_ID",this.receiverID)
                     context.startActivity(activity)
                 }
             }
