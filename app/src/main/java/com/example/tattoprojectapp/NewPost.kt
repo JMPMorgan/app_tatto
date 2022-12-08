@@ -89,10 +89,10 @@ class NewPost : AppCompatActivity() {
             }
             override fun onResponse(call: Call<Local>, response: Response<Local>) {
                 Log.e("Error",response.toString())
-                Log.e("Error",response.body()!!.local!!.id.toString())
-                if(response.body()!!.local!!.id !=null){
+                Log.e("Error",response.body().toString())
+                if(response.body()!!.id !=null){
                     userHasLocal=true;
-                    idlocal=response.body()!!.local!!.id
+                    idlocal=response.body()!!.id
                 }
             }
         })
