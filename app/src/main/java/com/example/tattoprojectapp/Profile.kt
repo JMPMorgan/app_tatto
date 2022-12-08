@@ -10,6 +10,11 @@ import android.util.Log
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.Toast
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.example.tattoprojectapp.Adapter.PostsRecyclerView
+import com.example.tattoprojectapp.Adapter.ProfileRecyclerView
+import com.example.tattoprojectapp.Data.ProfileOptions
 import com.example.tattoprojectapp.api.AuthService
 import com.example.tattoprojectapp.api.PostService
 import com.example.tattoprojectapp.models.ApiEngine
@@ -21,15 +26,26 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class Profile : AppCompatActivity() {
+    private lateinit var recyclerView: RecyclerView
+    private lateinit var adapter:ProfileRecyclerView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.profile)
-        val btnEditProfile=findViewById<Button>(R.id.btn_editprofile2)
+        ProfileOptions.context=this
+        recyclerView=findViewById(R.id.profile_options)
+        adapter= ProfileRecyclerView(this,ProfileOptions.options)
+        recyclerView.layoutManager=LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false)
+        recyclerView.adapter=adapter
+
+        /*val btnEditProfile=findViewById<Button>(R.id.btn_editprofile2)
         val btnCreateLocal= findViewById<Button>(R.id.btn_createlocal)
         val btnLocales=findViewById<Button>(R.id.btnlocal)
         val btnTmpPost= findViewById<Button>(R.id.btn_temp)
         val btnTmpAllPost= findViewById<Button>(R.id.btn_temp2)
         val btnMessages=findViewById<Button>(R.id.btn_message)
+
+
+         */
         var sp: SharedPreferences =applicationContext.getSharedPreferences("userData", Context.MODE_PRIVATE)
         val id=sp.getString("iduser","")
         val service: PostService = ApiEngine.getApi().create(PostService::class.java)
@@ -57,6 +73,8 @@ class Profile : AppCompatActivity() {
 
         })
 
+
+        /*
         btnEditProfile.setOnClickListener{
             val laucnh= Intent(this,EditProfile::class.java)
             startActivity(laucnh)
@@ -87,6 +105,7 @@ class Profile : AppCompatActivity() {
             startActivity(launch)
         }
 
+         */
 
 
         val botom=findViewById<BottomNavigationView>(R.id.bottom_navigation)

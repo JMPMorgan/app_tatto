@@ -29,7 +29,7 @@ import retrofit2.Response
 class AllPosts : AppCompatActivity() {
     private lateinit var recyclerView: RecyclerView
     private lateinit var adapter:PostsRecyclerView
-    private var idLocal:String=""
+    private var idLocal:String =""
     private var posts:List<Post> ?= null
     private var idUserCreator:String=""
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -51,10 +51,15 @@ class AllPosts : AppCompatActivity() {
         btnSendMsg.setOnClickListener{
             sendMessage()
         }
-        Log.e("ID LOCAL EN ALL POSTS",idLocal)
+        Log.e("ID LOCAL EN ALL POSTS",this.idLocal.toString())
+        if(this.idLocal == "null"){
+            Log.e("HOLA<","HOLAAAAAAAAAA")
+        }else{
+            Log.e("HOLA<","ADIOOOOOOOOOS")
+        }
 
-        if(idLocal.isNotEmpty()){
-            Log.e("ENTRO ID LOCAL",idLocal)
+        if(idLocal != "null"){
+            Log.e("ENTRO ID LOCAL",idLocal.toString())
             getLocal()
             getPosts()
 
@@ -84,8 +89,15 @@ class AllPosts : AppCompatActivity() {
             }
             override fun onResponse(call: Call<Local>, response: Response<Local>) {
                 Log.e("Error",response.toString())
-                Log.e("Error",response.body()!!.local!!.id.toString())
-                idLocal=response.body()!!.local!!.id.toString()
+                Log.e("Error",response.body().toString())
+                val localTitle= findViewById<TextView>(R.id.title_local)
+                val localImg= findViewById<ImageView>(R.id.imageLocal)
+                val localDescription=findViewById<TextView>(R.id.description_post)
+                Picasso.get().load(response.body()!!.img.toString()).into(localImg)
+                localDescription.text="Schedule: "+response.body()!!.schedule+ " Weekdays: "+response.body()!!.weekdays
+                localTitle.text=response.body()!!.name.toString()
+                idLocal=response.body()!!.id.toString()
+                idUserCreator=response.body()!!.userCreator.toString()
                 getPosts()
             }
         })
@@ -93,7 +105,7 @@ class AllPosts : AppCompatActivity() {
 
     private fun getLocal(){
         val service: LocalService=ApiEngine.getApi().create(LocalService::class.java)
-        val response:Call<Local> =  service.getLocal(idLocal)
+        val response:Call<Local> =  service.getLocal(idLocal.toString())
         response.enqueue(object :Callback<Local>{
             override fun onResponse(call: Call<Local>, response: Response<Local>) {
                 Log.e("Error",response.toString())
@@ -118,8 +130,8 @@ class AllPosts : AppCompatActivity() {
 
     private fun getPosts(){
         val service: PostsCreationService = ApiEngine.getApi().create(PostsCreationService::class.java)
-        Log.e("ID LOCAL",idLocal)
-        val response: Call<Post> = service.getPostsPerLocal(idLocal)
+        Log.e("ID LOCAL",idLocal.toString())
+        val response: Call<Post> = service.getPostsPerLocal(idLocal.toString())
         response.enqueue(object : Callback<Post> {
             override fun onFailure(call: Call<Post>, t: Throwable) {
                 Log.e("ERROR",t.toString())
