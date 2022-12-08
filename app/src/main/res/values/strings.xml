@@ -33,4 +33,6 @@
 
     <string name="btn_forgetpassword">Forget Password?</string>
     <string name="lorem">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ac tellus ac quam varius vestibulum eu sed leo.</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

@@ -51,25 +51,4 @@ class BottomMenu : AppCompatActivity() {
         */
     }
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return when(item.itemId){
-            R.id.account->{
-                val launch = Intent(this,Profile::class.java)
-                startActivity(launch)
-                Toast.makeText(applicationContext, "click on setting", Toast.LENGTH_LONG).show()
-                true
-            }
-            R.id.home -> {
-                // put your code here
-             true
-            }
-            R.id.messages->{
-                true
-            }
-            R.id.favs->{
-                true
-            }
-            else->super.onOptionsItemSelected(item)
-        }
-    }
 }
