@@ -9,7 +9,7 @@ import retrofit2.http.Path
 
 interface MessageService {
     @GET("/api/message/{id}")
-    fun getMessages(@Path("id")id:String): Call<List<Message>>
+    fun getMessages(@Path("id")id:String): Call<ArrayList<Message>>
     @POST("/api/message/")
     fun sendMessage(@Body message:Message): Call<String>
 }

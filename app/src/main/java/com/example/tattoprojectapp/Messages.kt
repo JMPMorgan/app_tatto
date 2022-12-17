@@ -23,7 +23,7 @@ class Messages : AppCompatActivity() {
     private lateinit var adapter:MessagesRecyclerView
     private var idConversation:String=""
     private var idReceiver:String=""
-    private var messages:List<Message>?=null
+    private var messages:ArrayList<Message>?=null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.messages)
@@ -39,9 +39,9 @@ class Messages : AppCompatActivity() {
 
     private  fun getMessages(){
         val messageService:MessageService=ApiEngine.getApi().create(MessageService::class.java)
-        val responseMessage: Call <List<Message>> =messageService.getMessages(idConversation)
-        responseMessage.enqueue(object :Callback<List<Message>>{
-            override fun onResponse(call: Call<List<Message>>, response: Response<List<Message>>) {
+        val responseMessage: Call <ArrayList<Message>> =messageService.getMessages(idConversation)
+        responseMessage.enqueue(object :Callback<ArrayList<Message>>{
+            override fun onResponse(call: Call<ArrayList<Message>>, response: Response<ArrayList<Message>>) {
                 Log.e("Error",response.toString())
                 Log.e("Error",response.body().toString())
                 var sp: SharedPreferences =applicationContext.getSharedPreferences("userData", Context.MODE_PRIVATE)
@@ -53,7 +53,7 @@ class Messages : AppCompatActivity() {
 
             }
 
-            override fun onFailure(call: Call<List<Message>>, t: Throwable) {
+            override fun onFailure(call: Call<ArrayList<Message>>, t: Throwable) {
                 Log.e("ERROR",t.toString())
                 Log.e("ERROR",responseMessage.toString())
                 Log.e("Error","ADIOS")
@@ -72,6 +72,8 @@ class Messages : AppCompatActivity() {
         responseMessage.enqueue(object :Callback<String>{
             override fun onResponse(call: Call<String>, response: Response<String>) {
                 Log.e("RESPONSE",response.body().toString())
+                messageContainer.text.clear()
+                getMessages()
             }
 
             override fun onFailure(call: Call<String>, t: Throwable) {

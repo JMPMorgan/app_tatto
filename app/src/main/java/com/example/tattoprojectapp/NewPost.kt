@@ -13,12 +13,14 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.Toast
+import com.example.tattoprojectapp.DB.SQLitepost
 import com.example.tattoprojectapp.api.LocalService
 import com.example.tattoprojectapp.api.PostService
 import com.example.tattoprojectapp.api.PostsCreationService
 import com.example.tattoprojectapp.models.ApiEngine
 import com.example.tattoprojectapp.models.Local
 import com.example.tattoprojectapp.models.Post
+import com.example.tattoprojectapp.databinding.NewPostBinding
 import com.example.tattoprojectapp.models.User
 import com.squareup.picasso.Picasso
 import retrofit2.Call
@@ -32,16 +34,19 @@ class NewPost : AppCompatActivity() {
     var imgArray:ByteArray? =  null
     var userHasLocal:Boolean?=false
     var idlocal:String?=null
+    lateinit var binding: NewPostBinding
+    lateinit var postSQL:SQLitepost
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.new_post)
-        val btnPublish = findViewById<Button>(R.id.btn_publish)
-        val btnSelectImage=findViewById<Button>(R.id.btn_upload)
-        btnPublish.setOnClickListener{
+        binding= NewPostBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        postSQL= SQLitepost(this)
+
+        binding.btnPublish.setOnClickListener{
             createNewPost()
         }
-
-        btnSelectImage.setOnClickListener{
+        binding.btnUpload.setOnClickListener{
             val gallery= Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI)
             startActivityForResult(gallery, pickImage)
         }
@@ -60,7 +65,11 @@ class NewPost : AppCompatActivity() {
         val encodedString:String =  Base64.getEncoder().encodeToString(this.imgArray)
         val strEncodeImage:String = "data:image/png;base64," + encodedString
         val post = Post("",id, description.text.toString(),idlocal,strEncodeImage)
-       val response: Call<Post> = service.createPost(post)
+        binding= NewPostBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        postSQL= SQLitepost(this)
+        postSQL.newPost(strEncodeImage,description.text.toString(),id.toString())
+        val response: Call<Post> = service.createPost(post)
         response.enqueue(object : Callback<Post> {
             override fun onFailure(call: Call<Post>, t: Throwable) {
                 Log.e("ERROR",t.toString())

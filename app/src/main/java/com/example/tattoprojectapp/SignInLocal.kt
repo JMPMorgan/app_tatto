@@ -13,7 +13,9 @@ import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
+import com.example.tattoprojectapp.DB.SQLiteLocal
 import com.example.tattoprojectapp.api.LocalService
+import com.example.tattoprojectapp.databinding.SignInLocalBinding
 import com.example.tattoprojectapp.models.ApiEngine
 import com.example.tattoprojectapp.models.Local
 import com.example.tattoprojectapp.models.User
@@ -26,18 +28,23 @@ import java.util.*
 class SignInLocal : AppCompatActivity() {
     private val pickImage = 100
     var imgArray:ByteArray? =  null
+    lateinit var binding: SignInLocalBinding
+    lateinit var localSQL: SQLiteLocal
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.sign_in_local)
-        val btnUploadImage= findViewById<Button>(R.id.btn_loadimage)
-        val btnSaveLocal= findViewById<Button>(R.id.btn_signin)
-        btnUploadImage.setOnClickListener{
+        binding=SignInLocalBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        localSQL= SQLiteLocal(this)
+
+        binding.btnSignin.setOnClickListener {
+
+            createLocal()
+
+        }
+        binding.btnLoadimage.setOnClickListener{
             val gallery=Intent(Intent.ACTION_PICK,MediaStore.Images.Media.INTERNAL_CONTENT_URI)
             startActivityForResult(gallery,pickImage)
-        }
-
-        btnSaveLocal.setOnClickListener{
-            createLocal()
         }
     }
 
@@ -67,6 +74,10 @@ class SignInLocal : AppCompatActivity() {
         val local= Local("",id,null,adress.text.toString(),strEncodeImage,opendays.text.toString(),schedule.text.toString(), name.text.toString())
         val service = ApiEngine.getApi().create(LocalService::class.java)
         val result: Call<Local> =service.createLocal(local)
+        binding=SignInLocalBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        localSQL=SQLiteLocal(this)
+        localSQL.newLocal(name.text.toString(),adress.text.toString(),opendays.text.toString(),schedule.text.toString(),strEncodeImage)
         result.enqueue(object: Callback<Local> {
             override fun onFailure(call: Call<Local>, t: Throwable) {
                 Log.e("EROR","HOLA")

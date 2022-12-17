@@ -12,7 +12,7 @@ import com.example.tattoprojectapp.models.Message
 import com.squareup.picasso.Picasso
 import org.w3c.dom.Text
 
-class MessagesRecyclerView(val messages:List<Message>,val userid:String):RecyclerView.Adapter<MessagesRecyclerView.ViewHolder>(){
+class MessagesRecyclerView(val messages:ArrayList<Message>,val userid:String):RecyclerView.Adapter<MessagesRecyclerView.ViewHolder>(){
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
@@ -25,7 +25,9 @@ class MessagesRecyclerView(val messages:List<Message>,val userid:String):Recycle
         val message=messages.get(position)
         Log.e("POSITION",position.toString())
         Log.e("Message",message.toString())
-        if(userid.equals(message.sender!!.userid.toString())){
+        val sender:String = if(message.sender == null) message.idsender.toString() else message.sender!!.userid.toString()
+
+        if(userid.equals(sender)){
             holder.userText.text=message.sender!!.name.toString()
         }else{
             holder.userText.text=message.sender!!.name.toString()

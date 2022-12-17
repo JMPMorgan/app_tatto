@@ -1,6 +1,7 @@
 package com.example.tattoprojectapp
 
 import android.content.Intent
+import android.database.sqlite.SQLiteDatabase
 import android.graphics.Bitmap
 import android.graphics.drawable.BitmapDrawable
 import androidx.appcompat.app.AppCompatActivity
@@ -11,7 +12,9 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.Toast
+import com.example.tattoprojectapp.DB.SQLitehealper
 import com.example.tattoprojectapp.api.PostService
+import com.example.tattoprojectapp.databinding.RegisterUserBinding
 import com.example.tattoprojectapp.models.ApiEngine
 import com.example.tattoprojectapp.models.User
 import retrofit2.Call
@@ -24,19 +27,45 @@ class RegisterUser : AppCompatActivity() {
     var user:User?=null
     private val pickImage = 100
     var imgArray:ByteArray? =  null
+    lateinit var binding: RegisterUserBinding
+    lateinit var usuario: SQLitehealper
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.register_user)
-        val btnSignin = findViewById<Button>(R.id.btn_signin)
-        val btnLoadImage= findViewById<Button>(R.id.btn_loadimage)
+        binding= RegisterUserBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        usuario= SQLitehealper(this)
         //user!!.email ="Hola"
-        btnSignin.setOnClickListener{
+
+
+        binding.btnSignin.setOnClickListener {
+            usuario.newDato(binding.inputName.text.toString(),binding.inputLastname.text.toString(),binding.inputUsername.text.toString(),
+                binding.inputBirthdate.text.toString(),binding.inputEmail.text.toString(),binding.inputPassword.text.toString())
+
+
+
             getUserInfo()
         }
-
-        btnLoadImage.setOnClickListener{
+        binding.btnLoadimage.setOnClickListener {
             val gallery= Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI)
             startActivityForResult(gallery, pickImage)
+        }
+        binding.btnBack.setOnClickListener {
+            var db: SQLiteDatabase =usuario.readableDatabase
+            val consulta =db.rawQuery("SELECT * FROM USUARIOS", null)
+            Log.e("ERROR",consulta.toString())
+            if(consulta.moveToFirst()){
+                do{
+                    binding.txtCpassword.append(consulta.getInt(0).toString() )
+                    binding.txtCpassword.append(consulta.getString(1).toString() +"  ")
+                    binding.txtCpassword.append(consulta.getString(2).toString() +"  ")
+                    binding.txtCpassword.append(consulta.getString(3).toString() +"  ")
+                    binding.txtCpassword.append(consulta.getString(4).toString() +"  ")
+                    binding.txtCpassword.append(consulta.getString(5).toString() +"\n")
+                }while (consulta.moveToNext())
+            }
+            val launch = Intent(this,SignUpActivity::class.java)
+            startActivity(launch)
         }
     }
 
@@ -51,6 +80,13 @@ class RegisterUser : AppCompatActivity() {
         val cpassword=findViewById<EditText>(R.id.input_cpassword)
         val encodedString:String =  Base64.getEncoder().encodeToString(this.imgArray)
         val strEncodeImage:String = "data:image/png;base64," + encodedString
+
+        binding=RegisterUserBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        usuario=SQLitehealper(this)
+        usuario.newDato(binding.inputName.text.toString(),binding.inputLastname.text.toString(),binding.inputUsername.text.toString(),
+            binding.inputBirthdate.text.toString(),binding.inputEmail.text.toString(),binding.inputPassword.text.toString())
+
         val user= User(null,
                     name.text.toString(),
                     lastname.text.toString(),
